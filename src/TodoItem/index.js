@@ -4,11 +4,11 @@ import './TodoItem.css';
 function TodoItem(props){
 
     const onComplete = ()=>{
-        alert('Ya completaste el texto' + props.text);
+        alert('Ya completaste el TO DO ' + props.text);
     };
 
     const onDelete = ()=>{
-        alert('Ya eliminaste el texto' + props.text);
+        alert('Ya eliminaste el TO DO ' + props.text);
     };
 
 
@@ -16,7 +16,8 @@ function TodoItem(props){
 
         <li className="TodoItem">
         <span className={`Icon Icon-check ${props.completed && 'Icon-check--active'}`}
-        onClick = {onComplete}
+        onClick = {props.onComplete}
+        //nO ENVOLVEMOS EN ARROWFUNCTION PORQUE NO LE TEMENOS QUE ENVIAR PARAMETROS
         >
         √
         </span>
@@ -26,7 +27,7 @@ function TodoItem(props){
         </p>
 
         <span className="Icon Icon-delete"
-        onClick={onDelete}
+        onClick={props.onDelete}
         >
         X
         </span>
